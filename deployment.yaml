@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: fastapi-service
+  name: fastapi-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fastapi-service
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: fastapi-service
+    spec:
+      containers:
+      - image: fastapi-hw
+        name: fastapi-hw
+        resources: {}
+status: {}

@@ -1,0 +1,18 @@
+apiVersion: skaffold/v2beta19
+kind: Config
+metadata:
+  name: fastapi-skaffold
+build:
+  artifacts:
+  - image: fastapi-hw
+    docker:
+      dockerfile: Dockerfile
+deploy:
+  kubectl:
+    manifests:
+    - deployment.yaml
+portForward:
+  - resourceType: deployment
+    resourceName: fastapi-service
+    port: 80
+    localPort: 9000
